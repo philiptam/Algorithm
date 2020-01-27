@@ -30,10 +30,17 @@ class SinglyLinkedList:
         new_node = Node(value)  # 创建一个新node
         self.insert_node_to_head(new_node)  # 调用向head插入node
 
+    def __repr__(self):
+        nums = []
+        current = self._head
+        while current:
+            nums.append(current.data)
+            current = current._next
+        return "->".join(str(num) for num in nums)
+
 
 if __name__ == "__main__":
     l = SinglyLinkedList()
     l.insert_value_to_head(1)
     l.insert_value_to_head(5)
-    node5 = l.find_by_value(5)
-    print(node5.__dict__)
+    print(l)
